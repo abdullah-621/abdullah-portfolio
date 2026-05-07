@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects — Abdullah Al Masum</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#1a5fa8;--blue-light:#e8f1fb;--blue-mid:#3b82c4;
+  --text:#1a1a2e;--text2:#4a5568;--text3:#718096;
+  --border:#d0dce8;--bg:#f7f9fc;--white:#fff;
+  --nav-bg:#fff;--accent:#c8391c;
+  --shadow:0 12px 30px rgba(26,95,168,0.08);
+}
+body.dark{
+  --blue:#78b7ff;--blue-light:#102a45;--blue-mid:#55a6f0;
+  --text:#f2f6fb;--text2:#cbd5e1;--text3:#94a3b8;
+  --border:#263b55;--bg:#0b1220;--white:#111c2f;
+  --nav-bg:#0f1a2b;--accent:#ff8a65;
+  --shadow:0 12px 30px rgba(0,0,0,0.28);
+}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--bg);font-size:17px;line-height:1.7;transition:background 0.2s,color 0.2s;}
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+nav{background:var(--nav-bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:0 2rem;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:64px;gap:12px;}
+.nav-name{font-weight:700;font-size:18px;color:var(--blue);margin-right:auto;white-space:nowrap;}
+.nav-links{display:flex;flex-wrap:wrap;}
+.nav-links a{padding:8px 12px;font-size:15px;color:var(--text2);border-radius:6px;transition:background 0.15s,color 0.15s;}
+.nav-links a:hover{background:var(--blue-light);color:var(--blue);text-decoration:none;}
+
+.page{max-width:1100px;margin:0 auto;padding:0 2rem 4rem;}
+
+.hero{display:grid;grid-template-columns:1fr 190px;gap:2.5rem;padding:3.25rem 0 2.5rem;border-bottom:1px solid var(--border);align-items:start;}
+.hero-avatar{width:170px;height:170px;border-radius:16px;background:linear-gradient(135deg,#1a5fa8 0%,#3b82c4 100%);display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-size:60px;color:#fff;font-weight:600;flex-shrink:0;box-shadow:var(--shadow);}
+.hero-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+.hero h1{font-family:'Source Serif 4',serif;font-size:40px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.15;}
+.hero .subtitle{font-size:18px;color:var(--blue);margin-bottom:8px;font-weight:600;}
+.hero .location{font-size:15px;color:var(--text3);margin-bottom:16px;}
+.hero-bio{font-size:17px;color:var(--text2);line-height:1.85;margin-bottom:20px;max-width:720px;}
+.hero-links{display:flex;flex-wrap:wrap;gap:7px;}
+.hero-links a{display:inline-flex;align-items:center;gap:6px;font-size:14px;padding:7px 13px;border:1px solid var(--border);border-radius:24px;color:var(--text2);background:var(--white);transition:all 0.15s;box-shadow:var(--shadow);}
+.hero-links a:hover{border-color:var(--blue);color:var(--blue);text-decoration:none;background:var(--blue-light);}
+
+.two-col{display:grid;grid-template-columns:320px 1fr;gap:2.5rem;padding-top:2.5rem;}
+
+section{margin-bottom:2rem;}
+.sec-title{display:flex;align-items:center;gap:10px;font-family:'Source Serif 4',serif;font-size:22px;font-weight:600;color:var(--text);border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:18px;}
+
+.skill-group{margin-bottom:10px;}
+.skill-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text3);margin-bottom:5px;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.skill-tag{font-size:12px;padding:3px 8px;background:var(--blue-light);color:var(--blue);border-radius:4px;border:1px solid #c3d9f0;}
+
+.contact-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.contact-row .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text3);min-width:55px;padding-top:2px;}
+.contact-row a{font-size:12px;color:var(--blue);word-break:break-all;}
+.contact-row span.val{font-size:12px;color:var(--text2);}
+
+.edu-item{margin-bottom:14px;padding-left:10px;border-left:3px solid var(--blue-mid);}
+.edu-deg{font-weight:600;font-size:14px;color:var(--text);}
+.edu-uni{font-size:13px;color:var(--blue);}
+.edu-year{font-size:12px;color:var(--text3);}
+
+.course-item{margin-bottom:12px;padding-left:10px;border-left:3px solid #9fc5e8;}
+.course-name{font-weight:600;font-size:13.5px;color:var(--text);}
+.course-org{font-size:12.5px;color:var(--blue);}
+.course-year{font-size:12px;color:var(--text3);}
+
+.lang-item{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.lang-name{font-size:13.5px;font-weight:500;color:var(--text);}
+.lang-note{font-size:11.5px;color:var(--text3);margin-top:1px;}
+.lang-dots{display:flex;gap:4px;}
+.dot{width:9px;height:9px;border-radius:50%;}
+.dot.filled{background:var(--blue);}
+.dot.empty{background:#d0dce8;}
+
+.project-item{border:1px solid var(--border);border-radius:12px;padding:14px 17px;margin-bottom:12px;background:var(--white);display:flex;align-items:center;justify-content:space-between;transition:border-color 0.15s,background 0.15s;box-shadow:var(--shadow);}
+.project-item:hover{border-color:var(--blue-mid);}
+.proj-name{font-size:17px;font-weight:600;color:var(--text);}
+.proj-tag{font-size:11px;color:var(--text3);background:#f0f4f8;padding:2px 7px;border-radius:10px;margin-left:6px;}
+.proj-link{font-size:17px;color:var(--text3);opacity:0.45;text-decoration:none;}
+.proj-link:hover{opacity:1;color:var(--blue);}
+
+.achieve-item{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+.achieve-dot{width:7px;height:7px;border-radius:50%;background:var(--blue-mid);margin-top:7px;flex-shrink:0;}
+.achieve-text{font-size:13.5px;color:var(--text2);line-height:1.6;}
+
+.extra-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;}
+.extra-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:7px;flex-shrink:0;}
+.extra-text{font-size:13.5px;color:var(--text2);}
+
+.hobby-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.hobby-tag{font-size:12.5px;padding:5px 12px;border:1px solid var(--border);border-radius:20px;color:var(--text2);background:var(--white);}
+
+.ref-card{border:1px solid var(--border);border-radius:14px;padding:18px 20px;background:var(--white);box-shadow:var(--shadow);}
+.ref-name{font-weight:600;font-size:14px;color:var(--text);margin-bottom:2px;}
+.ref-role{font-size:13px;color:var(--blue);margin-bottom:10px;}
+.ref-row{font-size:12.5px;color:var(--text2);margin-bottom:4px;}
+
+footer{border-top:1px solid var(--border);padding-top:1.5rem;margin-top:1rem;font-size:12px;color:var(--text3);text-align:center;}
+
+
+.theme-toggle{border:1px solid var(--border);background:var(--white);color:var(--text);border-radius:24px;padding:8px 13px;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background 0.15s,color 0.15s,border-color 0.15s;}
+.theme-toggle:hover{background:var(--blue-light);border-color:var(--blue);color:var(--blue);}
+.skill-label{font-size:13px;}
+.skill-tag{font-size:14px;padding:5px 10px;}
+.contact-row .lbl{font-size:12px;min-width:65px;}
+.contact-row a,.contact-row span.val{font-size:14px;}
+.edu-deg{font-size:16px;}.edu-uni{font-size:15px;}.edu-year{font-size:14px;}
+.course-name{font-size:15.5px;}.course-org{font-size:14.5px;}.course-year{font-size:14px;}
+.lang-name{font-size:16px;}.lang-note{font-size:13px;}
+.achieve-text,.extra-text{font-size:16px;}.hobby-tag{font-size:15px;padding:7px 14px;}
+.ref-name{font-size:17px;}.ref-role{font-size:15px;}.ref-row{font-size:14px;}
+
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;}
+  .hero-avatar{width:90px;height:90px;font-size:30px;}
+  .two-col{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .theme-toggle{padding:7px 11px;font-size:14px;}
+}
+
+
+
+.project-page{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:2.5rem;
+  padding-top:2.5rem;
+}
+.project-sidebar{
+  position:sticky;
+  top:88px;
+  align-self:start;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+.project-sidebar .profile-mini{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 14px;
+  border:4px solid var(--blue-light);
+}
+.project-sidebar h3{
+  text-align:center;
+  font-size:18px;
+  color:var(--text);
+  margin-bottom:12px;
+}
+.side-link{
+  display:block;
+  font-size:14px;
+  color:var(--text2);
+  margin:9px 0;
+}
+.project-list{
+  max-width:760px;
+}
+.big-project{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:2.5rem;
+  box-shadow:var(--shadow);
+}
+.big-project h3{
+  font-size:18px;
+  margin-bottom:12px;
+}
+.project-shot{
+  width:100%;
+  height:220px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:linear-gradient(135deg,var(--blue-light),var(--white));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--blue);
+  font-weight:700;
+  margin-bottom:14px;
+}
+.big-project ul{
+  padding-left:22px;
+  color:var(--text2);
+  font-size:15px;
+}
+.big-project li{
+  margin-bottom:8px;
+}
+.project-date{
+  color:var(--text3);
+  font-size:14px;
+  margin-top:8px;
+  font-style:italic;
+}
+@media(max-width:800px){
+  .project-page{
+    grid-template-columns:1fr;
+  }
+  .project-sidebar{
+    position:static;
+  }
+}
+
+
+.project-img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--blue-light);
+  margin-bottom:14px;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#about" class="nav-name">Abdullah Al Masum</a>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#education">Education</a>
+      <a href="index.html#courses">Courses</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="index.html#achievements">Achievements</a>
+      <a href="index.html#extracurricular">Extracurricular</a>
+      <a href="index.html#hobbies">Hobbies</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">🌙 Dark</button>
+  </div>
+</nav>
+
+
+<div class="page">
+  <div class="project-page">
+
+    <aside class="project-sidebar">
+      <img src="profile.png" alt="Abdullah Al Masum" class="profile-mini">
+      <h3>Abdullah Al Masum</h3>
+      <a class="side-link" href="mailto:abdullah.masum.cse@gmail.com">✉ Email</a>
+      <a class="side-link" href="https://github.com/abdullah-621" target="_blank">⌥ GitHub</a>
+      <a class="side-link" href="https://www.linkedin.com/in/abdullah65/" target="_blank">in LinkedIn</a>
+      <a class="side-link" href="https://www.kaggle.com/abdullah65621" target="_blank">⚑ Kaggle</a>
+      <a class="side-link" href="index.html">← Back to Home</a>
+    </aside>
+
+    <main class="project-list">
+      <section>
+        <div class="sec-title">📁 Projects</div>
+
+        <article class="big-project">
+          <h3><a href="https://github.com/abdullah-621" target="_blank">House Price Prediction</a></h3>
+          <img src="project8.png" alt="House Price Prediction Project Screenshot" class="project-img">
+          <ul>
+            <li>Developed a machine learning model to predict house prices using real estate data.</li>
+            <li>Applied preprocessing, feature engineering, model training, and evaluation.</li>
+            <li>Used Python, Pandas, NumPy, Scikit-learn, and visualization tools.</li>
+          </ul>
+          <div class="project-date">ML Project</div>
+        </article>
+
+        <article class="big-project">
+          <h3><a href="https://github.com/abdullah-621" target="_blank">Cancer Detection</a></h3>
+          <img src="project2.png" alt="Cancer Detection Project Screenshot" class="project-img">
+          <ul>
+            <li>Built a supervised machine learning model for cancer detection/classification.</li>
+            <li>Focused on clean data processing, model accuracy, and prediction reliability.</li>
+            <li>Implemented training and testing workflows using Python and Scikit-learn.</li>
+          </ul>
+          <div class="project-date">ML Project</div>
+        </article>
+
+        <article class="big-project">
+          <h3><a href="https://github.com/abdullah-621" target="_blank">Insurance Predictor</a></h3>
+          <img src="project3.png" alt="Insurance Predictor Project Screenshot" class="project-img">
+          <ul>
+            <li>Created an ML-based insurance prediction system using structured data.</li>
+            <li>Performed data analysis, preprocessing, and regression/classification modeling.</li>
+            <li>Designed the workflow for future deployment with Streamlit or FastAPI.</li>
+          </ul>
+          <div class="project-date">ML Project</div>
+        </article>
+
+        <article class="big-project">
+          <h3><a href="https://github.com/abdullah-621" target="_blank">Spam Mail Detection</a></h3>
+          <img src="project4.png" alt="Spam Mail Detection Project Screenshot" class="project-img">
+          <ul>
+            <li>Developed a spam email detection model using machine learning and NLP concepts.</li>
+            <li>Processed text data and converted messages into useful model features.</li>
+            <li>Used Python, Scikit-learn, and text preprocessing techniques.</li>
+          </ul>
+          <div class="project-date">ML + NLP Project</div>
+        </article>
+
+        <article class="big-project">
+          <h3><a href="https://github.com/abdullah-621" target="_blank">Quora Questions and Answers</a></h3>
+          <img src="project5.png" alt="Quora Questions and Answers Project Screenshot" class="project-img">
+          <ul>
+            <li>Worked with question-answer data using natural language processing methods.</li>
+            <li>Focused on text similarity, preprocessing, and ML model building.</li>
+            <li>Improved understanding of real-world NLP data pipelines.</li>
+          </ul>
+          <div class="project-date">ML + NLP Project</div>
+        </article>
+
+        <article class="big-project">
+          <h3><a href="https://github.com/abdullah-621" target="_blank">Books & Movie Recommendation System</a></h3>
+          <img src="project6.png" alt="Books and Movie Recommendation System Screenshot" class="project-img">
+          <ul>
+            <li>Built recommendation system concepts for books and movies.</li>
+            <li>Used user preferences and similarity-based logic to recommend content.</li>
+            <li>Explored practical ML/NLP recommendation workflows.</li>
+          </ul>
+          <div class="project-date">ML + NLP Project</div>
+        </article>
+
+        <article class="big-project">
+          <h3><a href="https://github.com/abdullah-621" target="_blank">Books & Movie Recommendation System</a></h3>
+          <img src="project7.png" alt="Sentiment Analysis" class="project-img">
+          <ul>
+            <li>Built Sentiment Analysis movies.</li>
+            <li>Used user preferences and similarity-based logic to recommend content.</li>
+            <li>Explored practical ML/NLP Sentiment Analysis workflows.</li>
+          </ul>
+          <div class="project-date">ML + NLP Project</div>
+        </article>
+
+        <article class="big-project">
+          <h3><a href="https://github.com/abdullah-621" target="_blank">Books & Movie Recommendation System</a></h3>
+          <img src="project8.png" alt="Raisin Prediction Apps" class="project-img">
+          <ul>
+            <li>BuiltRaisin Prediction Apps.</li>
+            <li>Used user preferences and similarity-based logic to recommend content.</li>
+            <li>Explored practical ML/NLP Sentiment Analysis workflows.</li>
+          </ul>
+          <div class="project-date">ML Project</div>
+        </article>
+
+      </section>
+    </main>
+
+  </div>
+
+  <footer>
+    &copy; 2026 Abdullah Al Masum &nbsp;&middot;&nbsp; Southeast University, Dhaka, Bangladesh
+  </footer>
+</div>
+
+
+<script>
+
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark');
+    themeToggle.textContent = '☀️ Light';
+    themeToggle.setAttribute('aria-label', 'Switch to light mode');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    themeToggle.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+  });
+
+</script>
+
+</body>
+</html>
