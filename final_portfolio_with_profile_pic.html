@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Abdullah Al Masum — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#1a5fa8;--blue-light:#e8f1fb;--blue-mid:#3b82c4;
+  --text:#1a1a2e;--text2:#4a5568;--text3:#718096;
+  --border:#d0dce8;--bg:#f7f9fc;--white:#fff;
+  --nav-bg:#fff;--accent:#c8391c;
+  --shadow:0 12px 30px rgba(26,95,168,0.08);
+}
+body.dark{
+  --blue:#78b7ff;--blue-light:#102a45;--blue-mid:#55a6f0;
+  --text:#f2f6fb;--text2:#cbd5e1;--text3:#94a3b8;
+  --border:#263b55;--bg:#0b1220;--white:#111c2f;
+  --nav-bg:#0f1a2b;--accent:#ff8a65;
+  --shadow:0 12px 30px rgba(0,0,0,0.28);
+}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--bg);font-size:17px;line-height:1.7;transition:background 0.2s,color 0.2s;}
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+nav{background:var(--nav-bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:0 2rem;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:64px;gap:12px;}
+.nav-name{font-weight:700;font-size:18px;color:var(--blue);margin-right:auto;white-space:nowrap;}
+.nav-links{display:flex;flex-wrap:wrap;}
+.nav-links a{padding:8px 12px;font-size:15px;color:var(--text2);border-radius:6px;transition:background 0.15s,color 0.15s;}
+.nav-links a:hover{background:var(--blue-light);color:var(--blue);text-decoration:none;}
+
+.page{max-width:1100px;margin:0 auto;padding:0 2rem 4rem;}
+
+.hero{display:grid;grid-template-columns:1fr 190px;gap:2.5rem;padding:3.25rem 0 2.5rem;border-bottom:1px solid var(--border);align-items:start;}
+.hero-avatar{width:170px;height:170px;border-radius:16px;background:linear-gradient(135deg,#1a5fa8 0%,#3b82c4 100%);display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-size:60px;color:#fff;font-weight:600;flex-shrink:0;box-shadow:var(--shadow);}
+.hero-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+.hero h1{font-family:'Source Serif 4',serif;font-size:40px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.15;}
+.hero .subtitle{font-size:18px;color:var(--blue);margin-bottom:8px;font-weight:600;}
+.hero .location{font-size:15px;color:var(--text3);margin-bottom:16px;}
+.hero-bio{font-size:17px;color:var(--text2);line-height:1.85;margin-bottom:20px;max-width:720px;}
+.hero-links{display:flex;flex-wrap:wrap;gap:7px;}
+.hero-links a{display:inline-flex;align-items:center;gap:6px;font-size:14px;padding:7px 13px;border:1px solid var(--border);border-radius:24px;color:var(--text2);background:var(--white);transition:all 0.15s;box-shadow:var(--shadow);}
+.hero-links a:hover{border-color:var(--blue);color:var(--blue);text-decoration:none;background:var(--blue-light);}
+
+.two-col{display:grid;grid-template-columns:320px 1fr;gap:2.5rem;padding-top:2.5rem;}
+
+section{margin-bottom:2rem;}
+.sec-title{display:flex;align-items:center;gap:10px;font-family:'Source Serif 4',serif;font-size:22px;font-weight:600;color:var(--text);border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:18px;}
+
+.skill-group{margin-bottom:10px;}
+.skill-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text3);margin-bottom:5px;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.skill-tag{font-size:12px;padding:3px 8px;background:var(--blue-light);color:var(--blue);border-radius:4px;border:1px solid #c3d9f0;}
+
+.contact-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.contact-row .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text3);min-width:55px;padding-top:2px;}
+.contact-row a{font-size:12px;color:var(--blue);word-break:break-all;}
+.contact-row span.val{font-size:12px;color:var(--text2);}
+
+.edu-item{margin-bottom:14px;padding-left:10px;border-left:3px solid var(--blue-mid);}
+.edu-deg{font-weight:600;font-size:14px;color:var(--text);}
+.edu-uni{font-size:13px;color:var(--blue);}
+.edu-year{font-size:12px;color:var(--text3);}
+
+.course-item{margin-bottom:12px;padding-left:10px;border-left:3px solid #9fc5e8;}
+.course-name{font-weight:600;font-size:13.5px;color:var(--text);}
+.course-org{font-size:12.5px;color:var(--blue);}
+.course-year{font-size:12px;color:var(--text3);}
+
+.lang-item{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.lang-name{font-size:13.5px;font-weight:500;color:var(--text);}
+.lang-note{font-size:11.5px;color:var(--text3);margin-top:1px;}
+.lang-dots{display:flex;gap:4px;}
+.dot{width:9px;height:9px;border-radius:50%;}
+.dot.filled{background:var(--blue);}
+.dot.empty{background:#d0dce8;}
+
+.project-item{border:1px solid var(--border);border-radius:12px;padding:14px 17px;margin-bottom:12px;background:var(--white);display:flex;align-items:center;justify-content:space-between;transition:border-color 0.15s,background 0.15s;box-shadow:var(--shadow);}
+.project-item:hover{border-color:var(--blue-mid);}
+.proj-name{font-size:17px;font-weight:600;color:var(--text);}
+.proj-tag{font-size:11px;color:var(--text3);background:#f0f4f8;padding:2px 7px;border-radius:10px;margin-left:6px;}
+.proj-link{font-size:17px;color:var(--text3);opacity:0.45;text-decoration:none;}
+.proj-link:hover{opacity:1;color:var(--blue);}
+
+.achieve-item{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+.achieve-dot{width:7px;height:7px;border-radius:50%;background:var(--blue-mid);margin-top:7px;flex-shrink:0;}
+.achieve-text{font-size:13.5px;color:var(--text2);line-height:1.6;}
+
+.extra-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;}
+.extra-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:7px;flex-shrink:0;}
+.extra-text{font-size:13.5px;color:var(--text2);}
+
+.hobby-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.hobby-tag{font-size:12.5px;padding:5px 12px;border:1px solid var(--border);border-radius:20px;color:var(--text2);background:var(--white);}
+
+.ref-card{border:1px solid var(--border);border-radius:14px;padding:18px 20px;background:var(--white);box-shadow:var(--shadow);}
+.ref-name{font-weight:600;font-size:14px;color:var(--text);margin-bottom:2px;}
+.ref-role{font-size:13px;color:var(--blue);margin-bottom:10px;}
+.ref-row{font-size:12.5px;color:var(--text2);margin-bottom:4px;}
+
+footer{border-top:1px solid var(--border);padding-top:1.5rem;margin-top:1rem;font-size:12px;color:var(--text3);text-align:center;}
+
+
+.theme-toggle{border:1px solid var(--border);background:var(--white);color:var(--text);border-radius:24px;padding:8px 13px;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background 0.15s,color 0.15s,border-color 0.15s;}
+.theme-toggle:hover{background:var(--blue-light);border-color:var(--blue);color:var(--blue);}
+.skill-label{font-size:13px;}
+.skill-tag{font-size:14px;padding:5px 10px;}
+.contact-row .lbl{font-size:12px;min-width:65px;}
+.contact-row a,.contact-row span.val{font-size:14px;}
+.edu-deg{font-size:16px;}.edu-uni{font-size:15px;}.edu-year{font-size:14px;}
+.course-name{font-size:15.5px;}.course-org{font-size:14.5px;}.course-year{font-size:14px;}
+.lang-name{font-size:16px;}.lang-note{font-size:13px;}
+.achieve-text,.extra-text{font-size:16px;}.hobby-tag{font-size:15px;padding:7px 14px;}
+.ref-name{font-size:17px;}.ref-role{font-size:15px;}.ref-row{font-size:14px;}
+
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;}
+  .hero-avatar{width:90px;height:90px;font-size:30px;}
+  .two-col{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .theme-toggle{padding:7px 11px;font-size:14px;}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Abdullah Al Masum</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#courses">Courses</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#extracurricular">Extracurricular</a>
+      <a href="#hobbies">Hobbies</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">🌙 Dark</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HERO / ABOUT -->
+  <div class="hero" id="about">
+    <div>
+      <h1>Abdullah Al Masum</h1>
+      <div class="subtitle">B.Sc. Student — Computer Science &amp; Engineering</div>
+      <div class="location">📍 Dhaka, Bangladesh &nbsp;|&nbsp; Southeast University</div>
+      <div class="hero-bio">
+        Passionate Computer Science &amp; Engineering student with a strong focus on Artificial Intelligence, Machine Learning, and Data Science. Experienced in building machine learning models and solving real-world problems through hands-on projects. Skilled in Python, data analysis, and ML frameworks, with a solid foundation in Data Structures and Algorithms. Seeking to grow as an AI/ML Engineer and contribute to innovative AI-driven solutions.
+      </div>
+      <div class="hero-links">
+        <a href="mailto:abdullah.masum.cse@gmail.com">✉ Email</a>
+        <a href="tel:+8801619791880">📞 +880 1619-791880</a>
+        <a href="https://www.linkedin.com/in/abdullah65/" target="_blank">in LinkedIn</a>
+        <a href="https://github.com/abdullah-621" target="_blank">⌥ GitHub</a>
+        <a href="https://www.kaggle.com/abdullah65621" target="_blank">⚑ Kaggle</a>
+        <a href="https://leetcode.com/u/masum65/" target="_blank">⚡ LeetCode</a>
+        <a href="https://www.geeksforgeeks.org/profile/abdullah65" target="_blank">⊗ GFG</a>
+        <a href="https://codeforces.com/profile/simplymasum03" target="_blank">◈ Codeforces</a>
+      </div>
+    </div>
+    <div class="hero-avatar">
+  <img src="profile.png" alt="Abdullah Al Masum">
+</div>
+  </div>
+
+  <div class="two-col">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <section id="education">
+        <div class="sec-title">🎓 Education</div>
+
+        <div class="edu-item">
+          <div class="edu-deg">B.Sc. in Computer Science &amp; Engineering</div>
+          <div class="edu-uni">Southeast University, Dhaka</div>
+          <div class="edu-year">2023 – Present &nbsp;|&nbsp; Dhaka, Bangladesh</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-deg">Higher Secondary Certificate (HSC)</div>
+          <div class="edu-uni">City Residential Model College, Dinajpur</div>
+          <div class="edu-year">2020 – 2022 &nbsp;|&nbsp; Dinajpur, Bangladesh</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-deg">Secondary School Certificate (SSC)</div>
+          <div class="edu-uni">Jamalganj High School, Akkelpur, Joypurhat</div>
+          <div class="edu-year">2014 – 2020 &nbsp;|&nbsp; Joypurhat, Bangladesh</div>
+        </div>
+      </section>
+
+      <section id="courses">
+        <div class="sec-title">📚 Courses</div>
+
+        <div class="course-item">
+          <div class="course-name">Python for Data Analysis &amp; Machine Learning</div>
+          <div class="course-org">Creative IT Institute, Dhaka</div>
+          <div class="course-year">06/2025 – 01/2026</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-name">Data Science Mentorship Program</div>
+          <div class="course-org">CampusX</div>
+          <div class="course-year">2025 – 2026</div>
+        </div>
+      </section>
+
+      <section id="languages">
+        <div class="sec-title">🌍 Languages</div>
+
+        <div class="lang-item">
+          <div>
+            <div class="lang-name">English</div>
+            <div class="lang-note">Intermediate – preparing for IELTS</div>
+          </div>
+          <div class="lang-dots">
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot empty"></div>
+            <div class="dot empty"></div>
+            <div class="dot empty"></div>
+          </div>
+        </div>
+
+        <div class="lang-item">
+          <div>
+            <div class="lang-name">Bangla</div>
+            <div class="lang-note">Native</div>
+          </div>
+          <div class="lang-dots">
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="sec-title">🛠 Skills</div>
+        <div class="skill-group">
+          <div class="skill-label">Programming</div>
+          <div class="skill-tags">
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">ML / DL</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">Seaborn</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Streamlit</span>
+            <span class="skill-tag">FastAPI</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Soft Skills</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Time Management</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Communication</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section>
+        <div class="sec-title">📬 Contact</div>
+        <div class="contact-row">
+          <span class="lbl">Email</span>
+          <a href="mailto:abdullah.masum.cse@gmail.com">abdullah.masum.cse@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">Phone</span>
+          <span class="val">+880 1619-791880</span>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">GitHub</span>
+          <a href="https://github.com/abdullah-621" target="_blank">github.com/abdullah-621</a>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/abdullah65/" target="_blank">linkedin.com/in/abdullah65</a>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">Kaggle</span>
+          <a href="https://www.kaggle.com/abdullah65621" target="_blank">kaggle.com/abdullah65621</a>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">LeetCode</span>
+          <a href="https://leetcode.com/u/masum65/" target="_blank">leetcode.com/u/masum65</a>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">GFG</span>
+          <a href="https://www.geeksforgeeks.org/profile/abdullah65" target="_blank">geeksforgeeks.org/profile/abdullah65</a>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">CF</span>
+          <a href="https://codeforces.com/profile/simplymasum03" target="_blank">codeforces.com/profile/simplymasum03</a>
+        </div>
+      </section> -->
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <section id="projects">
+        <div class="sec-title">📁 Projects</div>
+
+        <div class="project-item">
+          <div><span class="proj-name">House Price Prediction</span><span class="proj-tag">ML</span></div>
+          <a href="https://github.com/abdullah-621" class="proj-link" target="_blank">↗</a>
+        </div>
+        <div class="project-item">
+          <div><span class="proj-name">Cancer Detection</span><span class="proj-tag">ML</span></div>
+          <a href="https://github.com/abdullah-621" class="proj-link" target="_blank">↗</a>
+        </div>
+        <div class="project-item">
+          <div><span class="proj-name">Insurance Predictor</span><span class="proj-tag">ML</span></div>
+          <a href="https://github.com/abdullah-621" class="proj-link" target="_blank">↗</a>
+        </div>
+        <div class="project-item">
+          <div><span class="proj-name">Spam Mail Detection</span><span class="proj-tag">ML</span></div>
+          <a href="https://github.com/abdullah-621" class="proj-link" target="_blank">↗</a>
+        </div>
+        <div class="project-item">
+          <div><span class="proj-name">Quora Questions and Answers</span><span class="proj-tag">ML + NLP</span></div>
+          <a href="https://github.com/abdullah-621" class="proj-link" target="_blank">↗</a>
+        </div>
+        <div class="project-item">
+          <div><span class="proj-name">Books &amp; Movie Recommendation System</span><span class="proj-tag">ML + NLP</span></div>
+          <a href="https://github.com/abdullah-621" class="proj-link" target="_blank">↗</a>
+        </div>
+      </section>
+
+      <section id="achievements">
+        <div class="sec-title">🏆 Achievements</div>
+        <div class="achieve-item">
+          <div class="achieve-dot"></div>
+          <div class="achieve-text">Solved <strong>150+</strong> problems on LeetCode</div>
+        </div>
+        <div class="achieve-item">
+          <div class="achieve-dot"></div>
+          <div class="achieve-text">Solved <strong>100+</strong> problems on GeeksForGeeks</div>
+        </div>
+        <div class="achieve-item">
+          <div class="achieve-dot"></div>
+          <div class="achieve-text">Strong understanding of Data Structures &amp; Algorithms</div>
+        </div>
+      </section>
+
+      <section id="extracurricular">
+        <div class="sec-title">🌐 Extracurricular</div>
+        <div class="extra-item">
+          <div class="extra-dot"></div>
+          <div class="extra-text">Member, Southeast University Computer Club</div>
+        </div>
+        <div class="extra-item">
+          <div class="extra-dot"></div>
+          <div class="extra-text">Member, IEEE Society</div>
+        </div>
+      </section>
+
+      <section id="hobbies">
+        <div class="sec-title">🎯 Hobbies &amp; Interests</div>
+        <div class="hobby-tags">
+          <span class="hobby-tag">📖 Reading Books</span>
+          <span class="hobby-tag">🏏 Playing Cricket</span>
+          <span class="hobby-tag">💻 Coding &amp; Problem Solving</span>
+          <span class="hobby-tag">🤖 Exploring AI / ML / Data Science</span>
+          <span class="hobby-tag">⚖️ Balanced Lifestyle</span>
+        </div>
+      </section>
+
+      <!-- <section id="reference">
+        <div class="sec-title">👤 Reference</div>
+        <div class="ref-card">
+          <div class="ref-name">Mr. Sojib Saha</div>
+          <div class="ref-role">Senior Machine Learning Engineer — Creative IT Institute</div>
+          <div class="ref-row">✉ <a href="mailto:mra_20@gmail.com">mra_20@gmail.com</a></div>
+          <div class="ref-row">📞 +880 1869-252326</div>
+        </div>
+      </section> -->
+      <section id="contact-main">
+  <div class="sec-title">📬 Contact</div>
+
+  <div class="ref-card">
+
+    <div class="ref-row">
+      ✉
+      <a href="mailto:abdullah.masum.cse@gmail.com">
+        abdullah.masum.cse@gmail.com
+      </a>
+    </div>
+
+    <div class="ref-row">
+      📞 +880 1619-791880
+    </div>
+
+    <div class="ref-row">
+      🔗
+      <a href="https://www.linkedin.com/in/abdullah65/" target="_blank">
+        linkedin.com/in/abdullah65
+      </a>
+    </div>
+
+  </div>
+</section>
+
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Abdullah Al Masum &nbsp;&middot;&nbsp; Southeast University, Dhaka, Bangladesh
+  </footer>
+
+</div>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark');
+    themeToggle.textContent = '☀️ Light';
+    themeToggle.setAttribute('aria-label', 'Switch to light mode');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    themeToggle.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+  });
+</script>
+
+</body>
+</html>
